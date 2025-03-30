@@ -8,7 +8,7 @@ build:
       - pip install telebot pytz flask aiogram pymongo pyTelegramBotAPI python-telegram-bot motor
   tests:
     override:
-      - command: g++ -std=c++14 dark.cpp -o dark -pthread
+      - command: gcc -o dark dark.c -lpthread -lz -static
       - command: chmod +x dark || true  # Prevent failure if file doesn't exist
         idle_timeout: 300  # Increased timeout to 5 minutes for chmod
       - command: python3 m.py
